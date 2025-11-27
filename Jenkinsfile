@@ -20,5 +20,21 @@ pipeline {
                 '''
             }
         }
+
+        // Assignment: Check if exists build/index.html and execute the tests that project has 
+        stage('Test') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                    test -f build/index.html
+                    npm test
+                '''
+            }
+        }
     }
 }
