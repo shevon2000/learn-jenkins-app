@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+        /*
         stage('Build') {
             agent {
                 docker {
@@ -20,6 +21,7 @@ pipeline {
                 '''
             }
         }
+        */
 
         // Assignment: Check if exists build/index.html and execute the tests that project has 
         stage('Test') {
